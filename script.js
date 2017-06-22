@@ -1,7 +1,7 @@
 function print(a) { console.log(a); }
 
 function getRandomInt(max) {
-    min = Math.ceil(1);
+    var min = Math.ceil(1);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
@@ -16,6 +16,21 @@ function Potatoe()
     this.grown = false;
     this.price = 100;
     this.grownStatus = 42;
+    this.reproduction = 5;
+    return this;
+}
+
+function PotatoeM(grownStatus)
+{
+    this.type = "potatoe";
+    this.name = "Patate";
+    this.id = getRandomInt(10000);
+    this.growthRate = 0;
+    this.growth = 30;
+    this.grown = false;
+    this.price = 100;
+    this.grownStatus = grownStatus;
+    this.reproduction = 5;
     return this;
 }
 
@@ -28,25 +43,48 @@ function Player(name) {
     return this;
 }
 
+function buySpot(player) {
+    if (player.money > 2000) {
+        player.max++;
+        player.money -= 2000;
+    }
+}
+
 function grow(player)
 {
     var grownStatus;
+    var rand;
     player.vegetables.forEach(function (vegetable) {
         if (vegetable.growthRate < vegetable.growth)
             vegetable.growthRate++;
-        else if (vegetable.grownStatus === 42) {
+        else {
             vegetable.grown = true;
-            grownStatus = getRandomInt(100);
-            if (grownStatus > 95)
-                vegetable.grownStatus = 2;
-            else if (grownStatus > 70)
-                vegetable.grownStatus = 1.5;
-            else if (grownStatus < 20)
-                vegetable.grownStatus = 0.5;
-            else
-                vegetable.grownStatus = 1;
+            if (vegetable.grownStatus === 42) {
+                grownStatus = getRandomInt(100);
+                if (grownStatus > 95)
+                    vegetable.grownStatus = 4;
+                else if (grownStatus > 70)
+                    vegetable.grownStatus = 2;
+                else if (grownStatus < 20)
+                    vegetable.grownStatus = 0.5;
+                else
+                    vegetable.grownStatus = 1.25;
+            }
+            rand = getRandomInt(100);
+            if (rand == 1 && player.vegetables.length < player.max && vegetable.reproduction > 0) {
+                var potatoe = new PotatoeM(vegetable.grownStatus);
+                player.vegetables.push(potatoe);
+            }
         }
     });
+    if (player.money < 100 && player.vegetables.length === 0)
+    {
+        player.max -= 1;
+        player.money += 2000;
+    }
+    if (player.money < 100 && player.vegetables.length === 0 && player.max < 2) {
+        player.money += 100;
+    }
 }
 
 function sellPotatoe(id, player) {
@@ -60,19 +98,22 @@ function sellPotatoe(id, player) {
 
 function display(player) {
     var content = "";
-    $("#money").html('Vous avez '+player.money+'$');
+    $("#money").html('<p>Vous avez '+player.money+'$</p><p>Parcelle utilis√©es : '+player.vegetables.length+' / '+player.max+'</p>');
     player.vegetables.forEach(function (vegetable) {
         if (vegetable.grown == true) {
             var state;
             if (vegetable.grownStatus === 0.5)
-                state = "MisÈrable";
-            else if (vegetable.grownStatus === 1)
+                state = "Mis√©rable";
+            else if (vegetable.grownStatus === 1.25)
                 state = "Acceptable";
-            else if (vegetable.grownStatus === 1.5)
-                state = "TrËs bonne";
             else if (vegetable.grownStatus === 2)
+                state = "Tr√®s bonne";
+            else if (vegetable.grownStatus === 4)
                 state = "Divine";
-            content += '<button class="sellPotatoe" id="' + vegetable.id + '">' + vegetable.name + ' : Valeur : ' + state + '</button>';
+            if (vegetable.reproduction === 0)
+                content += '<button class="sellPotatoe" id="' + vegetable.id + '">' + vegetable.name + ' : Valeur : ' + state + '. FERTILE</button>';
+            else
+                content += '<button class="sellPotatoe" id="' + vegetable.id + '">' + vegetable.name + ' : Valeur : ' + state + '</button>';
         }
         else {
             content += '<section class="div"><img src="patate.png" alt="Patate">' + vegetable.name + ' : ' + vegetable.growthRate + '</section>';
@@ -91,7 +132,7 @@ function buyPotatoes(amount, player) {
     var x = 0;
     while (x < amount) {
         var potatoe = new Potatoe();
-        if (player.money >= potatoe.price) {
+        if (player.money >= potatoe.price && player.max > player.vegetables.length) {
             player.money -= potatoe.price;
             player.vegetables.push(potatoe);
         }

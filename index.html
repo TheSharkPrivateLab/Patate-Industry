@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Index</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="base.css">
     <link rel="icon" type="image/png" href="patate.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -17,15 +18,19 @@
 
             $("#add1000").click(function () {
                 addMoney(1000, player);
-            })
+            });
 
             $("#buy1Potatoe").click(function () {
                 buyPotatoes(1, player);
-            })
+            });
 
             $("#buy2Potatoes").click(function () {
                 buyPotatoes(2, player);
-            })
+            });
+
+            $("#buySpot").click(function () {
+                buySpot(player);
+            });
 
             $("#vegetables").on('click', ".sellPotatoe", function () {
                 sellPotatoe(this.id, player);
@@ -36,11 +41,12 @@
     <body>
         <h1>Simulateur de vente de patates</h1>
         <h3>Achetez, attendez, vendez.</h3>
-        <!--<p>Nécessite l'usage de la console du navigateur (Ctrl + Maj + i puis onglet "Console")</p>-->
+        <!--<p>NÃ©cessite l'usage de la console du navigateur (Ctrl + Maj + i puis onglet "Console")</p>-->
         <section id="money"></section>
-        <button id="add1000">Cheat</button>
+        <!--<button id="add1000">Cheat</button>-->
         <button id="buy1Potatoe">Acheter une patate</button>
         <button id="buy2Potatoes">Acheter deux patates</button>
+        <button id="buySpot">Acheter une parcelle</button>
         <section id="vegetables"></section>
     </body>
 </html>
