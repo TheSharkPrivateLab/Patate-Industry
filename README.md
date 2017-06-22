@@ -12,6 +12,7 @@
   - Patate d'or, + temps/+ argent.
 
 - Agriculture :
+  - Phénomène de reproduction des patates
   - Fatigue de la terre
   - Engrais :
     - Plus vite
