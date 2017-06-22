@@ -39,6 +39,12 @@
 
 ## Patches
 
+### 1.3
+
+- Balance de l'argent
+  - 500 de départ au lieu de 100.
+  - 100 de vente de base au lieu de 200.
+
 ### 1.2
 
 - Ajout de la qualité des patates :
