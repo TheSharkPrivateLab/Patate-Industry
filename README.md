@@ -1,5 +1,7 @@
 # Patate-Industry
 
+https://thesharkprivatelab.github.io/Patate-Industry/
+
 ## Fonctionalités à venir
 - Interface améliorée
   - Droite : Shop
