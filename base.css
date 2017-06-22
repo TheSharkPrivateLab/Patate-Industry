@@ -1,0 +1,19 @@
+body {
+  text-align : center;
+  font-family: Arial; 
+}
+
+.div {
+    margin: 5px;
+    width:100px;
+    display:inline-flex;
+    background-image:url("patate.png");
+}
+
+.sellPotatoe {
+    font-weight:bold;
+}
+
+.sellPotatoe:hover {
+    text-decoration:underline;
+}

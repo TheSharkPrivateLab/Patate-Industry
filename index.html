@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        $(document).ready(function () {
+            var player = new Player("Dummy");
+            display(player);
+
+            setInterval(function () {
+                grow(player);
+                display(player);
+            }, 1000);
+
+            $("#add1000").click(function () {
+                addMoney(1000, player);
+            })
+
+            $("#buy1Potatoe").click(function () {
+                buyPotatoes(1, player);
+            })
+
+            $("#buy2Potatoes").click(function () {
+                buyPotatoes(2, player);
+            })
+
+            $("#vegetables").on('click', ".sellPotatoe", function () {
+                sellPotatoe(this.id, player);
+            });
+        });
+    </script>
+</head>
+    <body>
+        <section id="money"></section>
+        <button id="add1000">Add 1000 gold</button>
+        <button id="buy1Potatoe">Buy a potatoe</button>
+        <button id="buy2Potatoes">Buy two potatoes</button>
+        <section id="vegetables"></section>
+    </body>
+</html>
