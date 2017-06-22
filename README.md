@@ -12,7 +12,8 @@
   - Patate d'or, + temps/+ argent.
 
 - Agriculture :
-  - Phénomène de reproduction des patates
+  - Phénomène de reproduction des patates  :
+    - A chaque seconde, une chance sur x de produire une patate de même qualité pour les patates "mures".
   - Fatigue de la terre
   - Engrais :
     - Plus vite
