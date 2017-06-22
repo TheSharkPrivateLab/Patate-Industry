@@ -9,10 +9,13 @@
     <script>
         $(document).ready(function () {
             var player = new Player("Dummy");
+            createAchievements(player);
+            addQuest(player, "Vendre 5 patates divines", '<button id="buyDivPotatoe">Acheter une patate divine (5000)</button>', 5);
             display(player);
 
             setInterval(function () {
                 grow(player);
+                quest(player);
                 display(player);
             }, 1000);
 
@@ -44,9 +47,14 @@
         <!--<p>Nécessite l'usage de la console du navigateur (Ctrl + Maj + i puis onglet "Console")</p>-->
         <section id="money"></section>
         <!--<button id="add1000">Cheat</button>-->
-        <button id="buy1Potatoe">Acheter une patate</button>
-        <button id="buy2Potatoes">Acheter deux patates</button>
-        <button id="buySpot">Acheter une parcelle</button>
+        <section id="buttons">
+            <button id="buy1Potatoe">Acheter une patate (100)</button>
+            <button id="buy2Potatoes">Acheter deux patates</button>
+            <button id="buySpot">Acheter une parcelle (2000)</button>
+        </section>
+        <h4>Quêtes</h4>
+        <section id="quests">
+        </section>
         <section id="vegetables"></section>
     </body>
 </html>

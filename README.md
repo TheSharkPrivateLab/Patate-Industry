@@ -44,7 +44,14 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 
 ## Patches
 
-### 1.4 EN COURS
+### 1.4.1
+
+- Amélioration de l'UI
+  - Indication des prix d'une patate et d'une parcelle
+  
+- Mise en place de la premiere quête
+
+### 1.4
 
 - Anti game over :
   - Si le joueur se retrouve sans patates et avec moins de 100 pièces, il vend une de ses parcelles et gagne 2000 pieces.

@@ -38,9 +38,53 @@ function Player(name) {
     this.username = name;
     this.money = 500;
     this.vegetables = [];
+    this.achievements = [],
+    this.quests = [];
     this.max = 10;
     this.exp = 0;
     return this;
+}
+
+function Achievement(name) {
+    this.name = name;
+    this.count = 0;
+}
+
+function Quest(name, reward, needed) {
+    this.name = name;
+    this.reward = reward;
+    this.progress = 0;
+    this.needed = needed;
+    this.done = false;
+    return this;
+}
+
+function addQuest(player, name, reward, needed, div) {
+    var quest = new Quest(name, reward, needed, div);
+    player.quests.push(quest);
+}
+
+function quest(player) {
+    var x = 0;
+    while (player.quests[x].name !== "Vendre 5 patates divines") {
+        x++;
+    }
+    if (player.quests[x].name === "Vendre 5 patates divines" && player.quests[x].done == false) {
+        player.quests[x].progress = player.achievements[3].count;
+        if (player.quests[x].progress == player.quests[x].needed) {
+            player.quests[x].done = true;
+            $("#buttons").html($("#buttons").html()+player.quests[x].reward);
+        }
+    }
+}
+
+function createAchievements(player)
+{
+    var godlike = new Achievement("Divine");
+    var verygood = new Achievement("Très Bonne");
+    var regular = new Achievement("Acceptable");
+    var terrible = new Achievement("Terrible");
+    player.achievements.push(terrible, regular, verygood, godlike);
 }
 
 function buySpot(player) {
@@ -93,11 +137,20 @@ function sellPotatoe(id, player) {
         x++;
     }
     player.money += player.vegetables[x].price * player.vegetables[x].grownStatus;
+    if (player.vegetables[x].grownStatus === 0.5)
+        player.achievements[0].count++;
+    else if (player.vegetables[x].grownStatus === 1.25)
+        player.achievements[1].count++;
+    else if (player.vegetables[x].grownStatus === 2)
+        player.achievements[2].count++;
+    else if (player.vegetables[x].grownStatus === 4)
+        player.achievements[3].count++;
     player.vegetables.splice(x, 1);
 }
 
 function display(player) {
     var content = "";
+    var questcontent = "";
     $("#money").html('<p>Vous avez '+player.money+'$</p><p>Parcelle utilisées : '+player.vegetables.length+' / '+player.max+'</p>');
     player.vegetables.forEach(function (vegetable) {
         if (vegetable.grown == true) {
@@ -119,6 +172,10 @@ function display(player) {
             content += '<section class="div"><img src="patate.png" alt="Patate">' + vegetable.name + ' : ' + vegetable.growthRate + '</section>';
         }
     });
+    player.quests.forEach(function (quest) {
+        questcontent += '<p>'+quest.name+' : '+quest.progress+' / '+quest.needed+'</p>';
+    });
+    $("#quests").html(questcontent);
     $("#vegetables").html(content);
 }
 
