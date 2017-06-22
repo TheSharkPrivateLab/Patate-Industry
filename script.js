@@ -12,17 +12,16 @@ function Potatoe()
     this.name = "Patate";
     this.id = getRandomInt(10000);
     this.growthRate = 0;
-    this.growth = 15;
+    this.growth = 30;
     this.grown = false;
-    this.buy_price = 100;
-    this.sell_price = 200;
+    this.price = 100;
     this.grownStatus = 42;
     return this;
 }
 
 function Player(name) {
     this.username = name;
-    this.money = 100;
+    this.money = 500;
     this.vegetables = [];
     this.max = 10;
     this.exp = 0;
@@ -55,13 +54,13 @@ function sellPotatoe(id, player) {
     while (player.vegetables[x].id !== parseInt(id)) {
         x++;
     }
-    player.money += player.vegetables[x].sell_price * player.vegetables[x].grownStatus;
+    player.money += player.vegetables[x].price * player.vegetables[x].grownStatus;
     player.vegetables.splice(x, 1);
 }
 
 function display(player) {
     var content = "";
-    $("#money").html(player.money);
+    $("#money").html('Vous avez '+player.money+'$');
     player.vegetables.forEach(function (vegetable) {
         if (vegetable.grown == true) {
             var state;
@@ -92,8 +91,8 @@ function buyPotatoes(amount, player) {
     var x = 0;
     while (x < amount) {
         var potatoe = new Potatoe();
-        if (player.money >= potatoe.buy_price) {
-            player.money -= potatoe.buy_price;
+        if (player.money >= potatoe.price) {
+            player.money -= potatoe.price;
             player.vegetables.push(potatoe);
         }
         x++;
