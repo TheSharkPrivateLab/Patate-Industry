@@ -52,10 +52,10 @@ function display(player) {
     $("#money").html(player.money);
     player.vegetables.forEach(function (vegetable) {
         if (vegetable.grown == true) {
-            content += '<section class="sellPotatoe" id="'+vegetable.id+'">' + vegetable.name + ' : ' + vegetable.growthRate + '</section>'
+            content += '<button class="sellPotatoe" id="'+vegetable.id+'">' + vegetable.name + ' : ' + vegetable.growthRate + '</button>'
         }
         else
-            content += '<section class="div">'+vegetable.name +' : ' + vegetable.growthRate +'</section>'
+            content += '<section class="div"><img src="patate.png" alt="Patate">'+vegetable.name +' : ' + vegetable.growthRate +'</section>'
     });
     $("#vegetables").html(content);
     //print(player.vegetables);

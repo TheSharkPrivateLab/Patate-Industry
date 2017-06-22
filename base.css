@@ -5,15 +5,29 @@ body {
 
 .div {
     margin: 5px;
-    width:100px;
+    width:200px;
+    height:50px;
     display:inline-flex;
-    background-image:url("patate.png");
+}
+
+.div img {
+    width: 20px;
+    height: 20px;
 }
 
 .sellPotatoe {
-    font-weight:bold;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+    display: inline-flex;
 }
 
 .sellPotatoe:hover {
     text-decoration:underline;
+}
+
+#vegetables {
+    margin-top:20px;
 }
