@@ -1,6 +1,12 @@
 # Patate-Industry
 
 ## Fonctionalités à venir
+- Interface améliorée
+  - Droite : Shop
+  - Milieu : Champs
+  - Gauche : Quêtes et Achivements
+
+- Sauvegarde
 
 - Nouveaux types de patates :
   - Patate d'or, + temps/+ argent.
