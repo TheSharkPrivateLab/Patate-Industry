@@ -17,11 +17,14 @@
     - Plus vite
     - Plus d'argent
     - Insensible aux aléas
+  - Insecticide
+  - Antibiotiques
   - Arrosage
   - Aléas naturels :
     - Givre
     - Orage/Inondation
     - Insectes
+    - Maladie
     - Aliens
     - Voleurs
 
