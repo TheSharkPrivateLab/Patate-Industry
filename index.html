@@ -16,6 +16,7 @@
             setInterval(function () {
                 grow(player);
                 quest(player);
+                time(player);
                 display(player);
             }, 1000);
 
@@ -49,9 +50,10 @@
         <h1>Simulateur de vente de patates</h1>
         <h3>Achetez, attendez, vendez.</h3>
         <!--<p>Nécessite l'usage de la console du navigateur (Ctrl + Maj + i puis onglet "Console")</p>-->
+        <section id="time"></section>
         <section id="money"></section>
-        <!--<button id="add1000">Cheat</button>-->
         <section id="buttons">
+            <!--<button id="add1000">Cheat</button>-->
             <button id="buy1Potatoe">Acheter une patate (100)</button>
             <button id="buy2Potatoes">Acheter cinq patates</button>
             <button id="buySpot">Acheter une parcelle (2000)</button>
