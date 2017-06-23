@@ -39,9 +39,31 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 
 ## Patches
 
+### 1.5.1
+
+- Mise en place du système de saison :
+	- Hiver :
+		- A chaque seconde, une chance sur 100 de mourir subitement du givre.
+		- Le prix de vente des patates divines est multiplié par deux.
+		- Les impots passent de 1000 pièces à 300 pièces.
+	- Automne :
+		- A chaque seconde, une chance sur 100 de perdre 1 de valeur pour les patates mures.
+	- Printemps :
+		- Les chances de reproduction sont multipliées par 2.
+	- Été :
+		- A chaque seconde, une chance sur 100 de gagner 1 de valeur pour les patates mures.
+
+- Amélioration de l'UI :
+	- Faute de chat, la console du navigateur donne désormais quelques messages utiles :
+		- Evenements liés à la saison.
+		- Reproduction.
+
+- Code :
+	- Restructuration des valeurs de qualité
+
 ### 1.5
 
-- Mise en place du système de saison
+- Mise en place du système de saison :
 	- Le temps avance à un rythme de 3 jours par seconde.
 	- Le printemps dure 93 jours minimum, l'été 94, l'automne 90 et l'hiver 89.
 	- Hiver :
