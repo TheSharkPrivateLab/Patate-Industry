@@ -44,19 +44,25 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 
 ## Patches
 
+### 1.4.2
+
+- Amélioration de l'UI
+  - Bouton "Acheter deux patates" changé en "Acheter 5 patates"
+
+- Mise en place du bouton "Acheter une patate divine"
+
 ### 1.4.1
 
 - Amélioration de l'UI
-  - Indication des prix d'une patate et d'une parcelle
-  
-- Mise en place de la premiere quête
+
+- Mise en place de la premiere quête  
 
 ### 1.4
 
 - Anti game over :
   - Si le joueur se retrouve sans patates et avec moins de 100 pièces, il vend une de ses parcelles et gagne 2000 pieces.
   - Si le joueur n'a plus d'argent, de patates ou de parcelles, 100 pièces lui sont données.
-  
+
 - Balance de l'argent : Qualité
   - "Médiocre" diminue toujours le prix de vente de 50%.
   - "Acceptable" augmente le prix de vente de 25%.

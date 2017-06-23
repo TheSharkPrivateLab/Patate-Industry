@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 <head>
     <title>Index</title>
     <meta charset="UTF-8">
@@ -23,15 +23,19 @@
                 addMoney(1000, player);
             });
 
-            $("#buy1Potatoe").click(function () {
-                buyPotatoes(1, player);
+            $("#buttons").on('click', "#buy1Potatoe", function () {
+                buyPotatoes(1, player, -1);
             });
 
-            $("#buy2Potatoes").click(function () {
-                buyPotatoes(2, player);
+            $("#buttons").on('click', "#buy2Potatoes", function () {
+                buyPotatoes(5, player, -1);
             });
 
-            $("#buySpot").click(function () {
+            $("#buttons").on('click', "#buyDivPotatoe", function () {
+                buyPotatoes(1, player, 3);
+            });
+
+            $("#buttons").on('click', "#buySpot", function () {
                 buySpot(player);
             });
 
@@ -49,7 +53,7 @@
         <!--<button id="add1000">Cheat</button>-->
         <section id="buttons">
             <button id="buy1Potatoe">Acheter une patate (100)</button>
-            <button id="buy2Potatoes">Acheter deux patates</button>
+            <button id="buy2Potatoes">Acheter cinq patates</button>
             <button id="buySpot">Acheter une parcelle (2000)</button>
         </section>
         <h4>Quêtes</h4>
