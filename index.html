@@ -13,12 +13,15 @@
             addQuest(player, "Vendre 5 patates divines", '<button id="buyDivPotatoe">Acheter une patate divine (5000)</button>', 5);
             display(player);
 
+            time(player);
             setInterval(function () {
                 grow(player);
-                quest(player);
                 time(player);
-                display(player);
             }, 1000);
+            setInterval(function () {
+                quest(player);
+                display(player);
+            }, 500);
 
             $("#add1000").click(function () {
                 addMoney(1000, player);
