@@ -17,8 +17,8 @@ https://thesharkprivatelab.github.io/Patate-Industry/
   - Améliorations pour augmenter le prix de certaines valeurs de patates.
 
 - Agriculture :
-  ~~- Phénomène de reproduction des patates  :
-	- A chaque seconde, une chance sur x de produire une patate de même qualité pour les patates "mures".~~
+  *- Phénomène de reproduction des patates  :
+	- A chaque seconde, une chance sur x de produire une patate de même qualité pour les patates "mures".*
   - Fatigue de la terre
   - Engrais :
 	- Plus vite
@@ -37,7 +37,7 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 
 - Quêtes :
   - Elever x patates.
-  ~~- Elever x patates de qualité "Divine".~~
+  *- Elever x patates de qualité "Divine".*
   
 
 
