@@ -6,7 +6,7 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 - Interface améliorée
   - Droite : Shop
   - Milieu : Champs
-  - Gauche : Quêtes et Achivements
+  - Gauche : Quêtes et Achievements
 
 - Sauvegarde
 
@@ -26,7 +26,6 @@ https://thesharkprivatelab.github.io/Patate-Industry/
   - Antibiotiques
   - Arrosage
   - Aléas naturels :
-	- Givre
 	- Orage/Inondation
 	- Insectes
 	- Maladie
@@ -38,6 +37,22 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 
 
 ## Patches
+
+### 1.6
+
+- Nouvelle UI :
+	- Actualisation des informations plus rapide.
+	- Onglets :
+		- Boutique
+		- Quête
+		- Parcelles
+		- Fenetre de messages de jeu
+
+- Equilibre commerce
+	- La vente d'une parcelle est maintenant obligatoire si l'argent pour payer les taxes est insuffisant.
+
+- Correction de bugs :
+	- Il est maintenant possible d'acheter une parcelle avec exactement 2000 pieces;
 
 ### 1.5.1
 

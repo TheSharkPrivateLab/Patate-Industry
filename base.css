@@ -1,16 +1,37 @@
 body {
+    position:relative;
   text-align : center;
   font-family: 'Comic Sans MS';
-  margin-left:20%;
-  margin-right:20%;
+}
+
+.main-pannels {
+    display:inline-block;
+}
+
+#left-pannel {
+    position:absolute;
+    width: 20%;
+    left:0;
+}
+
+#right-pannel {
+    position: absolute;
+    width: 20%;
+    right:0;
+}
+
+#middle-pannel {
+    position:absolute;
+    width: 55%;
+    left:24%;
 }
 
 .div {
     margin: 5px;
-    width:100px;
-    height:100px;
+    width:97px;
+    height:97px;
     display:inline-flex;
-    border: 5px solid black;
+    border: 3px solid black;
 }
 
 #money {
@@ -20,6 +41,8 @@ body {
 .div img {
     width: 20px;
     height: 20px;
+    vertical-align:top;
+    margin:auto;
 }
 
 .sellPotatoe {
@@ -36,5 +59,12 @@ body {
 }
 
 #vegetables {
+    position:relative;
+    width: 100%;
     margin-top:20px;
+}
+
+#time {
+    border:1px solid black;
+    margin-bottom:10px;
 }
