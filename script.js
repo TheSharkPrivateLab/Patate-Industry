@@ -95,7 +95,7 @@ function time(player) {
             player.season = 0;
             player.daySeason = 0;
             player.year++;
-            player.money -= 1000;
+            player.money -= 300;
             if (player.money < 0)
                 player.money = 0;
         }
@@ -142,6 +142,8 @@ function grow(player)
 {
     var value;
     var rand;
+    var x = 0;
+
     player.vegetables.forEach(function (vegetable) {
         if (vegetable.growthRate < vegetable.growth)
             vegetable.growthRate++;
@@ -150,21 +152,39 @@ function grow(player)
             if (vegetable.value === 42) {
                 value = getRandomInt(100);
                 if (value > 95)
-                    vegetable.value = 4;
+                    vegetable.value = 3;
                 else if (value > 70)
                     vegetable.value = 2;
                 else if (value < 20)
-                    vegetable.value = 0.5;
+                    vegetable.value = 0;
                 else
-                    vegetable.value = 1.25;
+                    vegetable.value = 1;
             }
-            rand = getRandomInt(100);
-            if (rand === 1 && player.vegetables.length < player.max && vegetable.reproduction > 0 && player.season != 3) {
+            if (player.season === 0)
+                rand = getRandomInt(50);
+            else
+                rand = getRandomInt(100);
+            if (rand === 1 && player.vegetables.length < player.max && vegetable.reproduction > 0 && player.season !== 3) {
                 var potatoe = new PotatoeM(vegetable.value);
                 vegetable.reproduction--;
+                print("Une patate de rang " + vegetable.value + " est née.");
                 player.vegetables.push(potatoe);
             }
+            rand = getRandomInt(100);
+            if (rand === 1 && player.season === 2 && vegetable.value > 0) {
+                print("Une patate de rang "+vegetable.value+" a été abimée.");
+                vegetable.value--;
+            }
+            else if (rand === 1 && player.season === 1 && vegetable.value < 3) {
+                print("Une patate de rang " + vegetable.value + " s'est engorgée de soleil.");
+                vegetable.value++;
+            }
+            else if (rand === 1 && player.season === 3) {
+                print("Une patate de rang " + vegetable.value + " est morte de froid.");
+                player.vegetables.splice(x,1);
+            }
         }
+        x++;
     });
     if (player.money < 100 && player.vegetables.length === 0)
     {
@@ -178,17 +198,30 @@ function grow(player)
 
 function sellPotatoe(id, player) {
     var x = 0;
+    var mult;
+
     while (player.vegetables[x].id !== parseInt(id)) {
         x++;
     }
-    player.money += player.vegetables[x].price * player.vegetables[x].value;
-    if (player.vegetables[x].value === 0.5)
+    if (player.vegetables[x].value == 0)
+        mult = 0.5;
+    else if (player.vegetables[x].value == 1)
+        mult = 1.5;
+    else if (player.vegetables[x].value == 2)
+        mult = 2;
+    else if (player.vegetables[x].value == 3) {
+        mult = 4;
+        if (player.season == 3)
+            mult *= 2;
+    }
+    player.money += player.vegetables[x].price * mult;
+    if (player.vegetables[x].value === 0)
         player.achievements[0].count++;
-    else if (player.vegetables[x].value === 1.25)
+    else if (player.vegetables[x].value === 1)
         player.achievements[1].count++;
     else if (player.vegetables[x].value === 2)
         player.achievements[2].count++;
-    else if (player.vegetables[x].value === 4)
+    else if (player.vegetables[x].value === 3)
         player.achievements[3].count++;
     player.vegetables.splice(x, 1);
     display(player);
@@ -201,13 +234,13 @@ function display(player) {
     player.vegetables.forEach(function (vegetable) {
         if (vegetable.grown === true) {
             var state;
-            if (vegetable.value === 0.5)
+            if (vegetable.value === 0)
                 state = "Misérable";
-            else if (vegetable.value === 1.25)
+            else if (vegetable.value === 1)
                 state = "Acceptable";
             else if (vegetable.value === 2)
                 state = "Très bonne";
-            else if (vegetable.value === 4)
+            else if (vegetable.value === 3)
                 state = "Divine";
             if (vegetable.reproduction === 0)
                 content += '<button class="sellPotatoe" id="' + vegetable.id + '">' + vegetable.name + ' : Valeur : ' + state + '. FERTILE</button>';
@@ -236,16 +269,16 @@ function buyPotatoes(amount, player, quality) {
     while (x < amount) {
         var potatoe = new Potatoe();
         if (quality === 0) {
-            potatoe.value = 0.5;
+            potatoe.value = 0;
         }
         else if (quality === 1) {
-            potatoe.value = 1.5;
+            potatoe.value = 1;
         }
         else if (quality === 2) {
             potatoe.value = 2;
         }
         else if (quality === 3) {
-            potatoe.value = 4;
+            potatoe.value = 3;
             potatoe.price = 5000;
         }
         if (player.money >= potatoe.price && player.max > player.vegetables.length) {
