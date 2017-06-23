@@ -9,16 +9,19 @@
     <script>
         $(document).ready(function () {
             var player = new Player("Dummy");
+            var chat = new Chat();
             createAchievements(player);
-            addQuest(player, "Vendre 5 patates divines", '<button id="buyDivPotatoe">Acheter une patate divine (5000)</button>', 5);
+            addQuest(player, "Vendre 5 patates divines", '<section class="shop-object"><span>Patate Divine (5000) : </span><button id="buyDivPotatoe">1</button></section>', 5);
             display(player);
-
+            time(player);
             setInterval(function () {
-                grow(player);
-                quest(player);
+                grow(player, chat);
                 time(player);
-                display(player);
             }, 1000);
+            setInterval(function () {
+                quest(player);
+                display(player);
+            }, 500);
 
             $("#add1000").click(function () {
                 addMoney(1000, player);
@@ -28,8 +31,12 @@
                 buyPotatoes(1, player, -1);
             });
 
-            $("#buttons").on('click', "#buy2Potatoes", function () {
+            $("#buttons").on('click', "#buy5Potatoes", function () {
                 buyPotatoes(5, player, -1);
+            });
+
+            $("#buttons").on('click', "#buy10Potatoes", function () {
+                buyPotatoes(10, player, -1);
             });
 
             $("#buttons").on('click', "#buyDivPotatoe", function () {
@@ -46,21 +53,31 @@
         });
     </script>
 </head>
-    <body>
+<body>
+    <section class="main-pannels" id="left-pannel">
+        <section id="time"></section>
+        <h3>Boutique</h3>
+        <section id="buttons">
+            <!--<button id="add1000">Cheat</button>-->
+            <section class="shop-object"><span>Patate (100) : </span><button id="buy1Potatoe">1</button><button id="buy5Potatoes">5</button><button id="buy10Potatoes">10</button></section>
+            <section class="shop-object"><span>Parcelle (2000) : </span><button id="buySpot">1</button></section>
+        </section>
+    </section>
+    <section class="main-pannels" id="middle-pannel">
         <h1>Patate Industry</h1>
         <h3>Achetez, attendez, vendez.</h3>
         <!--<p>Nécessite l'usage de la console du navigateur (Ctrl + Maj + i puis onglet "Console")</p>-->
-        <section id="time"></section>
         <section id="money"></section>
-        <section id="buttons">
-            <!--<button id="add1000">Cheat</button>-->
-            <button id="buy1Potatoe">Acheter une patate (100)</button>
-            <button id="buy2Potatoes">Acheter cinq patates</button>
-            <button id="buySpot">Acheter une parcelle (2000)</button>
+        <section id="vegetables"></section>
+    </section>
+    <section class="main-pannels" id="right-pannel">
+        <section id="player">
+            <h4>Joueur</h4>
         </section>
         <h4>Quêtes</h4>
-        <section id="quests">
-        </section>
-        <section id="vegetables"></section>
-    </body>
+        <section id="quests"></section>
+        <h4>Chat</h4>
+        <section id="chat"></section>
+    </section>
+</body>
 </html>
