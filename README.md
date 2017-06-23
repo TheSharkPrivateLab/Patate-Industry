@@ -54,6 +54,7 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 ### 1.4.1
 
 - Amélioration de l'UI
+  - Indication des prix d'une patate et d'une parcelle
 
 - Mise en place de la premiere quête  
 
