@@ -17,32 +17,45 @@ https://thesharkprivatelab.github.io/Patate-Industry/
   - Améliorations pour augmenter le prix de certaines valeurs de patates.
 
 - Agriculture :
-  - Phénomène de reproduction des patates  :
-    - A chaque seconde, une chance sur x de produire une patate de même qualité pour les patates "mures".
+  ~~- Phénomène de reproduction des patates  :
+	- A chaque seconde, une chance sur x de produire une patate de même qualité pour les patates "mures".~~
   - Fatigue de la terre
   - Engrais :
-    - Plus vite
-    - Plus d'argent
-    - Insensible aux aléas
+	- Plus vite
+	- Plus d'argent
+	- Insensible aux aléas
   - Insecticide
   - Antibiotiques
   - Arrosage
   - Aléas naturels :
-    - Givre
-    - Orage/Inondation
-    - Insectes
-    - Maladie
-    - Aliens
-    - Voleurs
+	- Givre
+	- Orage/Inondation
+	- Insectes
+	- Maladie
+	- Aliens
+	- Voleurs
 
 - Quêtes :
   - Elever x patates.
-  - Elever x patates de qualité "Divine".
+  ~~- Elever x patates de qualité "Divine".~~
   
 
 
 
 ## Patches
+
+### 1.5
+
+- Mise en place du système de saison
+	- Le temps avance à un rythme de 3 jours par seconde.
+	- Le printemps dure 93 jours minimum, l'été 94, l'automne 90 et l'hiver 89.
+	- Hiver :
+		- La reproduction est impossible en hiver.
+		- L'année se finit avec l'hiver.
+		- 1000 pièces d'impots sont prévelées chaque année.
+
+- Amélioration de l'UI
+	- La fertilité de la patate est indiquée.
 
 ### 1.4.2
 
@@ -71,12 +84,12 @@ https://thesharkprivatelab.github.io/Patate-Industry/
   - "Divine" augmente le prix de vente de 300%.
 
 - Ajout de la limite de parcelles :
-    - 10 de base mais améliorable au shop au coût de 2000 pièces.
-    
+	- 10 de base mais améliorable au shop au coût de 2000 pièces.
+	
 - Ajout de la reproduction
-    - Une fois mures, à chaque seconde, les patates ont une chance sur 100 de produire une autre patate.
-    - Chaque patate peut se reproduire jusqu'à 5 fois maximum.
-    - La patate issue de la reproduction est de la même qualité que la patate parente.
+	- Une fois mures, à chaque seconde, les patates ont une chance sur 100 de produire une autre patate.
+	- Chaque patate peut se reproduire jusqu'à 5 fois maximum.
+	- La patate issue de la reproduction est de la même qualité que la patate parente.
 
 ### 1.3
 

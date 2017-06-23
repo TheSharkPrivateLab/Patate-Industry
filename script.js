@@ -40,6 +40,10 @@ function Player(name) {
     this.vegetables = [];
     this.achievements = [],
     this.quests = [];
+    this.season = 0; // 0 Spring, 1 Summer, 2 Autumn, 3 Winter
+    this.daySeason = 0;
+    this.dayTotal = 0;
+    this.year = 0;
     this.max = 10;
     this.exp = 0;
     return this;
@@ -57,6 +61,46 @@ function Quest(name, reward, needed) {
     this.needed = needed;
     this.done = false;
     return this;
+}
+
+function time(player) {
+    var season;
+    player.daySeason += 3;
+    player.dayTotal += 3;
+    // printemps 92,8 jours , été 93,6 jours ,automne 89,8 jours et hiver 89jours
+    if (player.season === 0) {
+        season = "Printemps";
+        if (player.daySeason > 93) {
+            player.season = 1;
+            player.daySeason = 0;
+        }
+    }
+    else if (player.season === 1) {
+        season = "Été";
+        if (player.daySeason > 94) {
+            player.season = 2;
+            player.daySeason = 0;
+        }
+    }
+    else if (player.season === 2) {
+        season = "Automne";
+        if (player.daySeason > 90) {
+            player.season = 3;
+            player.daySeason = 0;
+        }
+    }
+    else if (player.season === 3) {
+        season = "Hiver";
+        if (player.daySeason > 89) {
+            player.season = 0;
+            player.daySeason = 0;
+            player.year++;
+            player.money -= 1000;
+            if (player.money < 0)
+                player.money = 0;
+        }
+    }
+    $("#time").html('<p>Jour '+player.dayTotal+', Année '+player.year+'</p><p>'+season+'</p>');
 }
 
 function addQuest(player, name, reward, needed, div) {
@@ -115,8 +159,9 @@ function grow(player)
                     vegetable.value = 1.25;
             }
             rand = getRandomInt(100);
-            if (rand === 1 && player.vegetables.length < player.max && vegetable.reproduction > 0) {
+            if (rand === 1 && player.vegetables.length < player.max && vegetable.reproduction > 0 && player.season != 3) {
                 var potatoe = new PotatoeM(vegetable.value);
+                vegetable.reproduction--;
                 player.vegetables.push(potatoe);
             }
         }
@@ -146,6 +191,7 @@ function sellPotatoe(id, player) {
     else if (player.vegetables[x].value === 4)
         player.achievements[3].count++;
     player.vegetables.splice(x, 1);
+    display(player);
 }
 
 function display(player) {
