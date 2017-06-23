@@ -58,6 +58,9 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 		- Evenements liés à la saison.
 		- Reproduction.
 
+- Code :
+	- Restructuration des valeurs de qualité
+
 ### 1.5
 
 - Mise en place du système de saison :

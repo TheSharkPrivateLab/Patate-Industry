@@ -127,7 +127,7 @@ function createAchievements(player)
     var godlike = new Achievement("Divine");
     var verygood = new Achievement("Très Bonne");
     var regular = new Achievement("Acceptable");
-    var terrible = new Achievement("Terrible");
+    var terrible = new Achievement("Misérable");
     player.achievements.push(terrible, regular, verygood, godlike);
 }
 
