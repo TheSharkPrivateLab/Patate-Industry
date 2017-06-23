@@ -9,13 +9,12 @@
     <script>
         $(document).ready(function () {
             var player = new Player("Dummy");
-            var chat = new Chat();
             createAchievements(player);
             addQuest(player, "Vendre 5 patates divines", '<section class="shop-object"><span>Patate Divine (5000) : </span><button id="buyDivPotatoe">1</button></section>', 5);
             display(player);
             time(player);
             setInterval(function () {
-                grow(player, chat);
+                grow(player);
                 time(player);
             }, 1000);
             setInterval(function () {

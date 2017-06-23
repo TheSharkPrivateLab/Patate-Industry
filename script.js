@@ -6,12 +6,6 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
 
-function Chat()
-{
-    this.messages = [];
-    return this;
-}
-
 function Potatoe()
 {
     this.type = "potatoe";
@@ -52,6 +46,7 @@ function Player(name) {
     this.year = 0;
     this.max = 10;
     this.exp = 0;
+    this.chat = [];
     return this;
 }
 
@@ -150,10 +145,11 @@ function buySpot(player) {
     }
 }
 
-function grow(player, chat)
+function grow(player)
 {
     var value;
     var rand;
+    var valString = "";
     var x = 0;
     var y = 0;
 
@@ -173,6 +169,16 @@ function grow(player, chat)
                 else
                     vegetable.value = 1;
             }
+
+            if (vegetable.value == 0)
+                valString = "Misérable";
+            else if (vegetable.value == 1)
+                valString = "Acceptable";
+            else if (vegetable.value == 2)
+                valString = "Excellente";
+            else if (vegetable.value == 3)
+                valString = "Divine";
+
             if (player.season === 0)
                 rand = getRandomInt(50);
             else
@@ -180,26 +186,26 @@ function grow(player, chat)
             if (rand === 1 && player.vegetables.length < player.max && vegetable.reproduction > 0 && player.season !== 3) {
                 var potatoe = new PotatoeM(vegetable.value);
                 vegetable.reproduction--;
-                chat.messages.unshift("Jour " + player.dayTotal +" : Une patate de rang " + vegetable.value + " est née.");
+                player.chat.unshift("Jour " + player.dayTotal +" : Une patate de qualité " + valString + " est née.");
                 player.vegetables.push(potatoe);
             }
             var rand2 = getRandomInt(100);
             if (rand2 === 1 && player.season === 2 && vegetable.value > 0) {
-                chat.messages.unshift("Jour " + player.dayTotal +" : Une patate de rang "+vegetable.value+" a été abimée par la pluie.");
+                player.chat.unshift("Jour " + player.dayTotal +" : Une patate de qualité "+valString+" a été abimée par la pluie.");
                 vegetable.value--;
             }
             else if (rand2 === 1 && player.season === 1 && vegetable.value < 3) {
-                chat.messages.unshift("Jour " + player.dayTotal +" : Une patate de rang " + vegetable.value + " s'est engorgée de soleil.");
+                player.chat.unshift("Jour " + player.dayTotal +" : Une patate de qualité " + valString + " s'est engorgée de soleil.");
                 vegetable.value++;
             }
             else if (rand2 === 1 && player.season === 3) {
-                chat.messages.unshift("Jour " + player.dayTotal +" : Une patate de rang " + vegetable.value + " est morte de froid.");
+                player.chat.unshift("Jour " + player.dayTotal +" : Une patate de qualité " + valString + " est morte de froid.");
                 player.vegetables.splice(x,1);
             }
             if (rand === 1 || rand2 === 1) {
                 $("#chat").html("");
-                while (y < 10 && chat.messages[y] !== undefined) {
-                    $("#chat").html($("#chat").html() + '<p>'+chat.messages[y] + '</p>');
+                while (y < 8 && player.chat[y] !== undefined) {
+                    $("#chat").html($("#chat").html() + '<p>'+player.chat[y] + '</p>');
                     y++;
                 }
                 y = 0;

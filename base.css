@@ -68,3 +68,9 @@ body {
     border:1px solid black;
     margin-bottom:10px;
 }
+
+.shop-object {
+    position: relative;
+    width: 100%;
+    text-align: left;
+}

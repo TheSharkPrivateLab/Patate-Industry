@@ -38,6 +38,13 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 
 ## Patches
 
+### 1.6.1
+
+- Nouvelle UI :
+    - Les boutons du shop sont un peu mieux alignés.
+    - Le chat donne la qualité plutot que l'id de la qualité.
+    - Jusqu'à 8 messages sont affichés.
+
 ### 1.6
 
 - Nouvelle UI :
