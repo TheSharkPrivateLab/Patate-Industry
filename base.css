@@ -26,6 +26,14 @@ body {
     left:24%;
 }
 
+.div-buy {
+    margin: 5px;
+    width:97px;
+    height:97px;
+    display:inline-flex;
+    border: 3px solid black;
+}
+
 .div {
     margin: 5px;
     width:97px;
