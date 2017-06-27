@@ -17,7 +17,7 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 - La personne qui résout le bug doit fermer le sujet et mentionner la version dans laquelle le bug sera corrigé.
 - Si le bug est retrouvé après l'application de la correction, il faut rouvrir l'issue et réexpliquer le bug.
 
-## Tâches
+### Tâches
  
  - L'état des tâches de la version sont disponibles dans l'onglet "Projects".
  - Chaque projet vaut une version. Le titre du projet est le numéro de la version et il doit contenir les colonnes "TO DO", "ON DOING", "ON REVIEW" et "DONE".
