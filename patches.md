@@ -7,12 +7,10 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 - Lab Update
 	- Les quêtes, la reproduction naturelle et les effets de saisons autre que les impots sont retirés du jeu.
 	- Ajout du laboratoire, qui remplace la reproduction naturelle.
-	- Ajout de l'inventaire : En cours
+	- Ajout de l'inventaire :
 		- Il faut acheter des graines de patate (100 pièces) pour les planter ensuite.
-		- Les patates récoltées sont stockées dans l'inventaire pour être vendus ou utilisées dans le lab.
-	
 - Le texte de début de jeu est maintenant en français.
-- Nettoyage du code
+- Nettoyage du code et du GitHub
 
 ### 1.6.2
 
@@ -153,18 +151,18 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 - Agriculture :
   - Fatigue de la terre
   - Engrais :
-    - Plus vite
-    - Plus d'argent
-    - Insensible aux aléas
+	- Plus vite
+	- Plus d'argent
+	- Insensible aux aléas
   - Insecticide
   - Antibiotiques
   - Arrosage
   - Aléas naturels :
 	  - Orage/Inondation
-    - Insectes
-    - Maladie
-    - Aliens
-    - Voleurs
+	- Insectes
+	- Maladie
+	- Aliens
+	- Voleurs
 
 - Quêtes :
   - Elever x patates.
