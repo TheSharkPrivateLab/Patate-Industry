@@ -26,15 +26,15 @@ function Seed()
 function Player(name) {
     this.username = name;
     this.money = 500;
-    this.vegetables = [];
     this.inventory = [];
+    this.lab = [[false, false], [false, false], [false, false]];
     this.season = 0; // 0 Spring, 1 Summer, 2 Autumn, 3 Winter
     this.daySeason = 0;
     this.dayTotal = 0;
     this.year = 0;
     this.spots = [false, false, false, false, false, false, false, false, false, false];
     this.exp = 0;
-    this.chat = [["Cliquer sur une parcelle pour y planter une patate !", 15]];
+    this.chat = [];
     return this;
 }
 

@@ -13,6 +13,7 @@
             var player = new Player("Dummy");
             display(player);
             time(player);
+            eventMessage("Achetez des graines et cliquez sur une parcelle pour la planter !", player);
             setInterval(function () {
                 grow(player);
                 time(player);
@@ -46,6 +47,10 @@
             });
 
             $("#vegetables").on('click', ".sellPotatoe", function () {
+                harvestPotatoe(this.id, player);
+            });
+
+            $("#inventory").on('click', ".sell", function () {
                 sellPotatoe(this.id, player);
             });
         });
@@ -60,20 +65,19 @@
             <section class="shop-object"><span>Graines de patate (100) : </span><button id="buy1Potatoe">1</button><button id="buy5Potatoes">5</button><button id="buy25Potatoes">25</button></section>
             <section class="shop-object"><span>Parcelle (2000) : </span><button id="buySpot">1</button></section>
         </section>
+        <h3>Lab</h3>
         <section id="lab">
-            <h3>Lab</h3>
         </section>
     </section>
     <section class="main-pannels" id="middle-pannel">
         <h1>Patate Industry</h1>
         <h3>Achetez, attendez, vendez.</h3>
-        <!--<p>Nécessite l'usage de la console du navigateur (Ctrl + Maj + i puis onglet "Console")</p>-->
         <section id="money"></section>
         <section id="vegetables"></section>
     </section>
     <section class="main-pannels" id="right-pannel">
+        <h4>Joueur</h4>
         <section id="player">
-            <h4>Joueur</h4>
         </section>
         <h4>Inventaire</h4>
         <section id="inventory"></section>

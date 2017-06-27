@@ -112,26 +112,31 @@ function grow(player)
     }
 }
 
-function sellPotatoe(id, player) {
+function harvestPotatoe(id, player) {
     var x = 0;
-    var mult;
 
     while (player.spots[x].id !== parseInt(id)) {
         x++;
     }
-    if (player.spots[x].value == 0)
-        mult = 0.5;
-    else if (player.spots[x].value == 1)
-        mult = 1.5;
-    else if (player.spots[x].value == 2)
-        mult = 2;
-    else if (player.spots[x].value == 3) {
-        mult = 4;
-        if (player.season == 3)
-            mult *= 2;
-    }
-    player.money += player.spots[x].price * mult;
+    player.inventory.push(player.spots[x]);
     player.spots[x] = false;
+    display(player);
+}
+
+function sellPotatoe(x, player) {
+    if (player.inventory[x].value === 0) {
+        player.money += player.inventory[x].price * 0.5;
+    }
+    else if (player.inventory[x].value === 1) {
+        player.money += player.inventory[x].price * 1.5;
+    }
+    else if (player.inventory[x].value === 2) {
+        player.money += player.inventory[x].price * 2;
+    }
+    else if (player.inventory[x].value === 3) {
+        player.money += player.inventory[x].price * 3;
+    }
+    player.inventory.splice(x, 1);
     display(player);
 }
 
@@ -170,11 +175,12 @@ function display(player) {
     $("#vegetables").html(content);
     content = "";
     player.inventory.forEach(function (item) {
-        content += '<span>'+item.name+' </span>';
+        content += '<span id="'+x+'">'+item.name+' </span>';
         if (item.name !== "Graine")
-            content += '<button>Lab</button><button>Vendre</button><br>';
+            content += ' <button class="addToLab" id="' + x + '">Lab</button><button class="sell" id="' + x +'">Vendre</button><br>';
         else
             content += '<br>';
+        x++;
     });
     $("#inventory").html(content);
 }
@@ -190,7 +196,6 @@ function plantPotatoe(player, spotId) {
     var seed;
 
     while (x < player.inventory.length) {
-        print(player.inventory[x]);
         if (player.inventory[x].type === "seed") {
             seed = player.inventory[x];
             break;
@@ -203,8 +208,6 @@ function plantPotatoe(player, spotId) {
             player.inventory.splice(x, 1);
             player.spots[spotId] = potatoe;
         }
-        else
-            eventMessage("Pas assez d'argent !", player);
     }
     else
         eventMessage("Vous n'avez pas de graines !", player);
@@ -218,6 +221,8 @@ function buyPotatoesSeeds(amount, player) {
             player.money -= seed.price;
             player.inventory.push(seed);
         }
+        else
+            eventMessage("Pas assez d'argent !", player);
         x++;
     }
 }
