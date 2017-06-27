@@ -38,6 +38,21 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 
 ## Patches
 
+### 1.6.2
+
+- Nouvelle UI :
+    - Chat renamed en "Evenement"
+    - Chat réduit à 5 messages
+    - Les messages expirent maintenant au bout de 15 secondes.
+    - Pour acheter des patates, il faut désormais passer par les parcelles en cliquant sur elles.
+    
+### 1.6.1
+
+- Nouvelle UI :
+    - Les boutons du shop sont un peu mieux alignés.
+    - Le chat donne la qualité plutot que l'id de la qualité.
+    - Jusqu'à 8 messages sont affichés.
+
 ### 1.6
 
 - Nouvelle UI :

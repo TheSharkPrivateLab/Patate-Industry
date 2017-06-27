@@ -9,13 +9,12 @@
     <script>
         $(document).ready(function () {
             var player = new Player("Dummy");
-            var chat = new Chat();
             createAchievements(player);
             addQuest(player, "Vendre 5 patates divines", '<section class="shop-object"><span>Patate Divine (5000) : </span><button id="buyDivPotatoe">1</button></section>', 5);
             display(player);
             time(player);
             setInterval(function () {
-                grow(player, chat);
+                grow(player);
                 time(player);
             }, 1000);
             setInterval(function () {
@@ -27,20 +26,24 @@
                 addMoney(1000, player);
             });
 
+            $("#vegetables").on('click', ".div-buy", function () {
+                plantPotatoe(1, player, -1, this.id);
+            });
+
             $("#buttons").on('click', "#buy1Potatoe", function () {
-                buyPotatoes(1, player, -1);
+                buyPotatoesSeeds(1, player, -1);
             });
 
             $("#buttons").on('click', "#buy5Potatoes", function () {
-                buyPotatoes(5, player, -1);
+                buyPotatoesSeeds(5, player, -1);
             });
 
             $("#buttons").on('click', "#buy10Potatoes", function () {
-                buyPotatoes(10, player, -1);
+                buyPotatoesSeeds(10, player, -1);
             });
 
             $("#buttons").on('click', "#buyDivPotatoe", function () {
-                buyPotatoes(1, player, 3);
+                buyPotatoesSeeds(1, player, 3);
             });
 
             $("#buttons").on('click', "#buySpot", function () {
@@ -58,8 +61,8 @@
         <section id="time"></section>
         <h3>Boutique</h3>
         <section id="buttons">
-            <!--<button id="add1000">Cheat</button>-->
-            <section class="shop-object"><span>Patate (100) : </span><button id="buy1Potatoe">1</button><button id="buy5Potatoes">5</button><button id="buy10Potatoes">10</button></section>
+            <!--<button id="add1000">Cheat</button>
+            <section class="shop-object"><span>Graines de patate (100) : </span><button id="buy1Potatoe">1</button><button id="buy5Potatoes">5</button><button id="buy10Potatoes">10</button></section>-->
             <section class="shop-object"><span>Parcelle (2000) : </span><button id="buySpot">1</button></section>
         </section>
     </section>
@@ -76,7 +79,7 @@
         </section>
         <h4>Quêtes</h4>
         <section id="quests"></section>
-        <h4>Chat</h4>
+        <h4>Évenements</h4>
         <section id="chat"></section>
     </section>
 </body>
