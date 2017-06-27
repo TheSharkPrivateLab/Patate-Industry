@@ -85,30 +85,6 @@ function grow(player)
                 valString = "Excellente";
             else if (vegetable.value == 3)
                 valString = "Divine";
-
-            if (player.season === 0)
-                rand = getRandomInt(50);
-            else
-                rand = getRandomInt(100);
-            if (rand === 1 && player.vegetables.length < player.spots.length && vegetable.reproduction > 0 && player.season !== 3) {
-                var potatoe = new PotatoeM(vegetable.value);
-                vegetable.reproduction--;
-                player.chat.unshift(["Jour " + player.dayTotal +" : Une patate de qualité " + valString + " est née.", 15]);
-                player.vegetables.push(potatoe);
-            }
-            var rand2 = getRandomInt(100);
-            if (rand2 === 1 && player.season === 2 && vegetable.value > 0) {
-                player.chat.unshift(["Jour " + player.dayTotal +" : Une patate de qualité "+valString+" a été abimée par la pluie.", 15]);
-                vegetable.value--;
-            }
-            else if (rand2 === 1 && player.season === 1 && vegetable.value < 3) {
-                player.chat.unshift(["Jour " + player.dayTotal +" : Une patate de qualité " + valString + " s'est engorgée de soleil.", 15]);
-                vegetable.value++;
-            }
-            else if (rand2 === 1 && player.season === 3) {
-                player.chat.unshift(["Jour " + player.dayTotal +" : Une patate de qualité " + valString + " est morte de froid.", 15]);
-                player.vegetables.splice(x,1);
-            }
         }
         $("#chat").html("");
         while (y < 5 && player.chat[y] !== undefined) {
@@ -164,8 +140,8 @@ function display(player) {
     var questcontent = "";
     var x = 0;
     var state;
-
-    $("#money").html('<p>Vous avez '+player.money+'$</p><p>Parcelle utilisées : '+player.vegetables.length+' / '+player.spots.length+'</p>');
+    var y = 0;
+    
     player.spots.forEach(function (spot) {
         if (spot.value === 0)
             state = "Misérable";
@@ -177,15 +153,20 @@ function display(player) {
             state = "Divine";
         if (spot.grown === true) {
             content += '<button class="sellPotatoe" id="' + spot.id + '">' + spot.name + ' : Valeur : ' + state + '</button>';
+            y++;
         }
         else {
             if (spot === false)
                 content += '<button class="div-buy" id=' + x + '><br></button>';
-            else
+            else {
                 content += '<section class="div" id=' + x + '><img src="patate.png" alt="Patate"><br>' + spot.name + ' <br> ' + spot.growthRate + '</section>';
+                y++;
+            }
         }
         x++;
     });
+    $("#money").html('<p>Vous avez ' + player.money + '$</p><p>Parcelle utilisées : ' + y + ' / ' + player.spots.length + '</p>');
+    x = 0;
     $("#vegetables").html(content);
     content = "";
     player.inventory.forEach(function (item) {
@@ -224,7 +205,7 @@ function buyPotatoesSeeds(amount, player) {
     var x = 0;
     while (x < amount) {
         var seed = new Seed();
-        if (player.money >= seed.price && player.spots.length > player.vegetables.length) {
+        if (player.money >= seed.price) {
             player.money -= seed.price;
             player.inventory.push(seed);
         }

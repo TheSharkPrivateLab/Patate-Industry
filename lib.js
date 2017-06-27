@@ -9,3 +9,13 @@ function getRandomInt(max) {
 function eventMessage(message, player) {
     player.chat.unshift([message, 15]);
 }
+
+function getNumberOfPotatoes(player) {
+    var x = 0;
+    player.spots.forEach(function (spot) {
+        if (spot !== false) {
+            x++;
+        }
+    });
+    return x;
+}
