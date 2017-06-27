@@ -1,15 +1,18 @@
 function Potatoe(seed)
 {
-    this.type = seed.type;
-    this.name = seed.name;
+    this.type = "potatoe";
+    this.name = "Potatoe";
     this.id = seed.id;
+    this.growthRate = seed.growthRate;
+    this.growth = seed.growth;
+    this.price = seed.price;
     this.value = 42;
     return this;
 }
 
 function Seed()
 {
-    this.type = "potatoe";
+    this.type = "seed";
     this.name = "Graine";
     this.id = getRandomInt(1000000);
     this.growthRate = 0;

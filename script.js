@@ -187,18 +187,27 @@ function addMoney(amount,player)
 
 function plantPotatoe(player, spotId) {
     var x = 0;
+    var seed;
 
     while (x < player.inventory.length) {
-
+        print(player.inventory[x]);
+        if (player.inventory[x].type === "seed") {
+            seed = player.inventory[x];
+            break;
+        }
+         x++;
     }
-
-    if (player.spots[spotId] === false) {
-        var potatoe = new Potatoe(seed);
-        player.money -= 100;
-        player.spots[spotId] = potatoe;
+    if (seed !== undefined) {
+        if (player.spots[spotId] === false) {
+            var potatoe = new Potatoe(seed);
+            player.inventory.splice(x, 1);
+            player.spots[spotId] = potatoe;
+        }
+        else
+            eventMessage("Pas assez d'argent !", player);
     }
     else
-        eventMessage("Pas assez d'argent !", player);
+        eventMessage("Vous n'avez pas de graines !", player);
 }
 
 function buyPotatoesSeeds(amount, player) {
