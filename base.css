@@ -34,6 +34,23 @@ body {
     border: 3px solid black;
 }
 
+.div-lab {
+    margin: 5px;
+    width: 73px;
+    height: 73px;
+    display: inline-flex;
+    border: 3px solid black;
+}
+
+.div-lab-potatoe {
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+}
+
 .div {
     margin: 5px;
     width:97px;

@@ -140,6 +140,24 @@ function sellPotatoe(x, player) {
     display(player);
 }
 
+function addToLab(x, player) {
+    var y = 0;
+    while (y < player.lab.length) {
+        if (player.lab[y][0] === false) {
+            player.lab[y][0] = player.inventory[x];
+            player.inventory.splice(x, 1);
+            break;
+        }
+        else if (player.lab[y][1] === false) {
+            player.lab[y][1] = player.inventory[x];
+            player.inventory.splice(x, 1);
+            break;
+        }
+        y++;
+    }
+    display(player);
+}
+
 function display(player) {
     var content = "";
     var questcontent = "";
@@ -171,18 +189,45 @@ function display(player) {
         x++;
     });
     $("#money").html('<p>Vous avez ' + player.money + '$</p><p>Parcelle utilisées : ' + y + ' / ' + player.spots.length + '</p>');
-    x = 0;
     $("#vegetables").html(content);
     content = "";
+    x = 0;
+    y = 0;
     player.inventory.forEach(function (item) {
-        content += '<span id="'+x+'">'+item.name+' </span>';
-        if (item.name !== "Graine")
-            content += ' <button class="addToLab" id="' + x + '">Lab</button><button class="sell" id="' + x +'">Vendre</button><br>';
-        else
-            content += '<br>';
+        if (item.name === "Graine")
+            y++;
+    });
+    if (y === 1) {
+        content += '<span>Graine</span>';
+        content += '<br>';
+    }
+    else if (y > 1)
+    {
+        content += '<span>Graines x' + y + ' </span>';
+        content += '<br>';
+    }
+    player.inventory.forEach(function (item) {
+        if (item.name !== "Graine") {
+            content += '<span id="'+x+'">'+item.name+' '+getValString(item.value)+'</span>';
+            content += ' <button class="addToLab" id="' + x + '">Lab</button><button class="sell" id="' + x + '">Vendre</button><br>';
+        }
         x++;
     });
     $("#inventory").html(content);
+    x = 0;
+    y = 0;
+    content = "";
+    player.lab.forEach(function (potatoe) {
+        if (potatoe[0] !== false)
+            content += '<button class="div-lab-potatoe">' + potatoe[0].name + ' : Valeur : ' + state + '</button>';
+        else
+            content += '<button class="div-lab"></button>';
+        if (potatoe[1] !== false)
+            content += '<button class="div-lab-potatoe">' + potatoe[1].name + ' : Valeur : ' + state + '</button>';
+        else
+            content += '<button class="div-lab"></button><br>';
+    });
+    $("#lab").html(content);
 }
 
 function addMoney(amount,player)
