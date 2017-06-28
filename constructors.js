@@ -16,7 +16,7 @@ function Seed()
     this.name = "Graine";
     this.id = getRandomInt(1000000);
     this.growthRate = 0;
-    this.growth = 3;
+    this.growth = 30;
     this.price = 100;
     this.value = 42;
     return this;

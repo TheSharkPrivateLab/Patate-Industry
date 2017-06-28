@@ -36,9 +36,9 @@ body {
 
 .div-lab {
     margin: 5px;
-    width: 73px;
-    height: 73px;
-    display: inline-flex;
+    width: 72px;
+    height: 72px;
+    display: inline-block;
     border: 3px solid black;
 }
 
@@ -46,9 +46,9 @@ body {
     font-weight: bold;
     text-align: center;
     margin: 5px;
-    width: 80px;
-    height: 80px;
-    display: inline-flex;
+    width: 75px;
+    height: 75px;
+    display: inline-block;
 }
 
 .div {

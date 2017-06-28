@@ -219,11 +219,12 @@ function display(player) {
     content = "";
     player.lab.forEach(function (potatoe) {
         if (potatoe[0] !== false)
-            content += '<button class="div-lab-potatoe">' + potatoe[0].name + ' : Valeur : ' + state + '</button>';
+            content += '<button class="div-lab-potatoe">' + potatoe[0].name + ' : Valeur : ' + getValString(potatoe[0].value) + '</button>';
         else
             content += '<button class="div-lab"></button>';
+        content += '<button>Reprod.</button>';
         if (potatoe[1] !== false)
-            content += '<button class="div-lab-potatoe">' + potatoe[1].name + ' : Valeur : ' + state + '</button>';
+            content += '<button class="div-lab-potatoe">' + potatoe[1].name + ' : Valeur : ' + getValString(potatoe[1].value) + '</button><br>';
         else
             content += '<button class="div-lab"></button><br>';
     });
