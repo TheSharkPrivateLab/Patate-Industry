@@ -2,6 +2,14 @@
 
 https://thesharkprivatelab.github.io/Patate-Industry/
 
+## 2.0.1
+
+- Lab Update
+	- L'option Lab est disponible pour les patates mures.
+	- Les graines sont affichées en stacks.
+	- "Potatoe" devient "Patate".
+	- La qualité des patates est affichée.
+
 ## 2.0.0
 
 - Lab Update

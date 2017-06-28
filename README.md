@@ -8,7 +8,7 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 
 - Les commits ne se font jamais sur la branche master, qui est réservée à la version précédente, stable et mise en ligne sur GitHub Pages.
 - Quand on travaille sur une nouvelle version, il faut créer une branche v[n° de version] (ex : v1.7) et faire les commits dessus.
-- Il est obligatoire de créer une branche v[n° de version]/[n° secondaire]/[Nom_de_la_tâche] (ex : v1.8/2/Ajout_des_effets_de_saison) à chaque tâche/fonctionnalités et de pull request sur la branche de version pour vérifier qu'il n'y a pas de conflits.
+- Il est obligatoire de créer une branche v[n° de version].[n° secondaire]-[Nom_de_la_tâche] (ex : v1.8.2-Ajout_des_effets_de_saison) à chaque tâche/fonctionnalités et de pull request sur la branche de version pour vérifier qu'il n'y a pas de conflits.
 
 ### Les bugs
 

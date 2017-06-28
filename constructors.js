@@ -1,7 +1,7 @@
 function Potatoe(seed)
 {
     this.type = "potatoe";
-    this.name = "Potatoe";
+    this.name = "Patate";
     this.id = seed.id;
     this.growthRate = seed.growthRate;
     this.growth = seed.growth;
@@ -27,7 +27,7 @@ function Player(name) {
     this.username = name;
     this.money = 500;
     this.inventory = [];
-    this.lab = [[false, false], [false, false], [false, false]];
+    this.lab = [[false, false, false], [false, false, false], [false, false, false]];
     this.season = 0; // 0 Spring, 1 Summer, 2 Autumn, 3 Winter
     this.daySeason = 0;
     this.dayTotal = 0;

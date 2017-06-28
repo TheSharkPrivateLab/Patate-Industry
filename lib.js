@@ -19,3 +19,17 @@ function getNumberOfPotatoes(player) {
     });
     return x;
 }
+
+function getValString(value)
+{
+    var string;
+    if (value === 0)
+        string = "Misérable";
+    else if (value === 1)
+        string = "Acceptable";
+    else if (value === 2)
+        string = "Excellente";
+    else if (value === 3)
+        string = "Divine";
+    return string;
+}
