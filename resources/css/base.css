@@ -1,0 +1,106 @@
+body {
+    position:relative;
+  text-align : center;
+  font-family: 'Comic Sans MS';
+}
+
+.main-pannels {
+    display:inline-block;
+}
+
+#left-pannel {
+    position:absolute;
+    width: 20%;
+    left:0;
+}
+
+#right-pannel {
+    position: absolute;
+    width: 20%;
+    right:0;
+}
+
+#middle-pannel {
+    position:absolute;
+    width: 55%;
+    left:24%;
+}
+
+.div-buy {
+    margin: 5px;
+    width:97px;
+    height:97px;
+    display:inline-flex;
+    border: 3px solid black;
+}
+
+.div {
+    margin: 5px;
+    width: 97px;
+    height: 97px;
+    display: inline-flex;
+    border: 3px solid black;
+}
+
+.div span, .sellPotato span {
+    position:absolute;
+    vertical-align:top;
+}
+
+.sellPotato {
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+    width: 100px;
+    height: 100px;
+    display: inline-flex;
+}
+
+.div-lab {
+    margin: 5px;
+    width: 72px;
+    height: 72px;
+    display: inline-block;
+    border: 3px solid black;
+}
+
+.div-lab-potato {
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+}
+
+#money {
+    margin:10px;
+}
+
+.div img {
+    width: 20px;
+    height: 20px;
+    vertical-align:top;
+    margin:auto;
+}
+
+.sellPotato:hover {
+    text-decoration:underline;
+}
+
+#vegetables {
+    position:relative;
+    width: 100%;
+    margin-top:20px;
+}
+
+#time {
+    border:1px solid black;
+    margin-bottom:10px;
+}
+
+.shop-object {
+    position: relative;
+    width: 100%;
+    text-align: left;
+}

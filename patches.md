@@ -2,6 +2,13 @@
 
 https://thesharkprivatelab.github.io/Patate-Industry/
 
+## 2.0.2
+
+- Amélioration du design
+
+- Correction de bugs
+	- Quand on achete un paquet de graine sans avoir assez d'argent, le message ne s'affiche qu'une fois.
+
 ## 2.0.1
 
 - Lab Update
