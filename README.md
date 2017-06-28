@@ -22,3 +22,4 @@ https://thesharkprivatelab.github.io/Patate-Industry/
  - L'état des tâches de la version sont disponibles dans l'onglet "Projects".
  - Chaque projet vaut une version. Le titre du projet est le numéro de la version et il doit contenir les colonnes "TO DO", "ON DOING", "ON REVIEW" et "DONE".
  - Les tâches sont mises en review quand elles sont terminées afin de tester et de débugger avant de les valider définitivement.
+ - Il faut enregistrer toutes les tâches sous formes d'issues et le assigner à une personne ainsi qu'à une millstone qui sera la version.
