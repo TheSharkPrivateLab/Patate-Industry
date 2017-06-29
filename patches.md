@@ -4,10 +4,15 @@ https://thesharkprivatelab.github.io/Patate-Industry/
 
 ## 2.0.2
 
-- Amélioration du design
+- Lab Update
+	- Amélioration du design
+	- La vente de parcelles rapportent désormais 1200 pièces au lieu de 2000.
+
+- Réorganisation du code
 
 - Correction de bugs
 	- Quand on achete un paquet de graine sans avoir assez d'argent, le message ne s'affiche qu'une fois.
+	- Les anti game over ont été corrigés.
 
 ## 2.0.1
 

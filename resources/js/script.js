@@ -32,16 +32,28 @@ function time(player) {
             player.year++;
             player.money -= 300;
             if (player.money < 0 && player.spots.length > 1) {
-                player.money += 2000;
+                player.money += 1200;
                 player.spots.length--;
             }
             else if (player.money < 0 && player.spots.length < 2)
             {
-                player.money += 100;
+                player.money = 100;
             }
         }
     }
-    $("#time").html('<p>Jour '+player.dayTotal+', Année '+player.year+'</p><p>'+season+'</p>');
+    $("#time").html('<img src="resources/img/' + season + '.png"></img><p>Jour ' + player.dayTotal + ', Année ' + player.year + '</p><p>' + season + '</p>');
+    if (season === "Hiver") {
+        $("#time").attr("class", "weather snow");
+        $("#time").attr("style", "background-color:#A5D2FF;");
+    }
+    else if (season === "Automne") {
+        $("#time").attr("class", "weather rain");
+        $("#time").attr("style", "");
+    }
+    else {
+        $("#time").attr("class", "");
+        $("#time").attr("style", "");
+    }
 }
 
 function buySpot(player) {
@@ -166,16 +178,8 @@ function display(player) {
     var y = 0;
     
     player.spots.forEach(function (spot) {
-        if (spot.value === 0)
-            state = "Misérable";
-        else if (spot.value === 1)
-            state = "Acceptable";
-        else if (spot.value === 2)
-            state = "Excellente";
-        else if (spot.value === 3)
-            state = "Divine";
         if (spot.grown === true) {
-            content += '<button class="sellPotato" id="' + spot.id + '"><span><img src="resources/img/potato.png" alt="Potato"><img/><br>'+state +'</span></button>';
+            content += '<button class="sellPotato" id="' + spot.id + '"><span>'+getValString(spot.value) +'</span></button>';
             y++;
         }
         else {
@@ -203,7 +207,7 @@ function display(player) {
     }
     else if (y > 1)
     {
-        content += '<span>Graines x' + y + ' </span>';
+        content += '<img src="resources/img/Potato_Seeds.png"></img><span>Graines x' + y + ' </span>';
         content += '<br>';
     }
     player.inventory.forEach(function (item) {
