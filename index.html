@@ -2,12 +2,13 @@
 <head>
     <title>Index</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="base.css">
-    <link rel="icon" type="image/png" href="patate.png">
+    <link rel="stylesheet" type="text/css" href="resources/css/base.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/weather.css">
+    <link rel="icon" type="image/png" href="resources/img/potato.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="script.js"></script>
-    <script src="constructors.js"></script>
-    <script src="lib.js"></script>
+    <script src="resources/js/script.js"></script>
+    <script src="resources/js/constructors.js"></script>
+    <script src="resources/js/lib.js"></script>
     <script>
         $(document).ready(function () {
             var player = new Player("Dummy");
@@ -27,31 +28,31 @@
             });
 
             $("#vegetables").on('click', ".div-buy", function () {
-                plantPotatoe(player, this.id);
+                plantPotato(player, this.id);
             });
 
-            $("#buttons").on('click', "#buy1Potatoe", function () {
-                buyPotatoesSeeds(1, player);
+            $("#buttons").on('click', "#buy1Potato", function () {
+                buyPotatosSeeds(1, player);
             });
 
-            $("#buttons").on('click', "#buy5Potatoes", function () {
-                buyPotatoesSeeds(5, player);
+            $("#buttons").on('click', "#buy5Potatos", function () {
+                buyPotatosSeeds(5, player);
             });
 
-            $("#buttons").on('click', "#buy25Potatoes", function () {
-                buyPotatoesSeeds(25, player);
+            $("#buttons").on('click', "#buy25Potatos", function () {
+                buyPotatosSeeds(25, player);
             });
 
             $("#buttons").on('click', "#buySpot", function () {
                 buySpot(player);
             });
 
-            $("#vegetables").on('click', ".sellPotatoe", function () {
-                harvestPotatoe(this.id, player);
+            $("#vegetables").on('click', ".sellPotato", function () {
+                harvestPotato(this.id, player);
             });
 
             $("#inventory").on('click', ".sell", function () {
-                sellPotatoe(this.id, player);
+                sellPotato(this.id, player);
             });
 
             $("#inventory").on('click', ".addToLab", function () {
@@ -62,11 +63,11 @@
 </head>
 <body>
     <section class="main-pannels" id="left-pannel">
-        <section id="time"></section>
+        <section id="time" class="weather snow"></section>
         <h3>Boutique</h3>
         <section id="buttons">
             <!--<button id="add1000">Cheat</button>-->
-            <section class="shop-object"><span>Graines de patate (100) : </span><button id="buy1Potatoe">1</button><button id="buy5Potatoes">5</button><button id="buy25Potatoes">25</button></section>
+            <section class="shop-object"><span>Graines de patate (100) : </span><button id="buy1Potato">1</button><button id="buy5Potatos">5</button><button id="buy25Potatos">25</button></section>
             <section class="shop-object"><span>Parcelle (2000) : </span><button id="buySpot">1</button></section>
         </section>
         <h3>Lab</h3>
@@ -80,13 +81,14 @@
         <section id="vegetables"></section>
     </section>
     <section class="main-pannels" id="right-pannel">
-        <h4>Joueur</h4>
+        <!--<h4>Joueur</h4>
         <section id="player">
-        </section>
+        </section>-->
         <h4>Inventaire</h4>
         <section id="inventory"></section>
         <h4>Évenements</h4>
         <section id="chat"></section>
     </section>
+    <footer></footer>
 </body>
 </html>
