@@ -24,7 +24,7 @@ function getValString(value)
 {
     var string;
     if (value === 0)
-        string = "Misérable";
+        string = "Mis&eacuterable";
     else if (value === 1)
         string = "Acceptable";
     else if (value === 2)
