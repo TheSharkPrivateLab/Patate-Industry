@@ -24,7 +24,7 @@ function sellPotato(x, player) {
         3: 3
     };
 
-    if (player.inventory.length < x) return;
+    if (player.inventory.length < x) { return; }
 
     if (preset[player.inventory[x].value]) {
         player.money += player.inventory[x].price * preset[player.inventory[x].value];

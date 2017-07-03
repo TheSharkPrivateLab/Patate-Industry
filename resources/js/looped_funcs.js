@@ -59,8 +59,8 @@ function grow(player) {
     var value;
     var rand;
     var valString = "";
+    var chat = [];
     var x = 0;
-    var y = 0;
     var z = 0;
 
     player.spots.forEach(function (vegetable) {
@@ -90,11 +90,12 @@ function grow(player) {
                 valString = "Divine";
         }
         $("#chat").html("");
-        while (y < 5 && player.chat[y] !== undefined) {
-            $("#chat").html($("#chat").html() + '<p>' + player.chat[y][0] + '</p>');
-            y++;
-        }
-        y = 0;
+
+        chat = [player.chat[0], player.chat[1], player.chat[2], player.chat[2], player.chat[4]];
+
+        chat.forEach(function (chatMsg) {
+            if (chatMsg !== undefined) { $("#chat").html($("#chat").html() + '<p>' + chatMsg + '</p>'); }
+        });
         x++;
     });
     player.chat.forEach(function (message) {

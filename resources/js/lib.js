@@ -22,6 +22,11 @@ function getNumberOfPotatos(player) {
 
 function getValString(value)
 {
-    var values = ["Mis&eacuterable", "Acceptable", "Excellente", "Divine"];
+    const values = {
+        0: "Mis&eacuterable",
+        1: "Acceptable",
+        2: "Excellente",
+        3: "Divine"
+    }
     return values[value];
 }
