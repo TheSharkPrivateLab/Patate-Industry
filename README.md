@@ -1,5 +1,7 @@
 # Patate-Industry
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/98236f3713124db78df5340ce03b9df8)](https://www.codacy.com/app/carra_c/Patate-Industry?utm_source=github.com&utm_medium=referral&utm_content=TheSharkPrivateLab/Patate-Industry&utm_campaign=badger)
+
 https://thesharkprivatelab.github.io/Patate-Industry/
 
 ## Comment fonctionne le repo ?
