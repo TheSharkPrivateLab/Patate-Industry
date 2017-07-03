@@ -28,7 +28,7 @@ function time(player) {
             }
             break;
         case 1:
-            season = "Été";
+            season = "&Eacutet&eacute";
             if (player.daySeason > 94) {
                 player.season = 2;
                 player.daySeason = 0;
@@ -54,7 +54,7 @@ function time(player) {
     }
     $("#time").attr("class", weather);
     $("#time").attr("style", color);
-    $("#time").html("<img src=\"resources/img/" + season + ".png\"></img><p>Jour " + player.dayTotal + ", Année " + player.year + "</p><p>" + season + "</p>");
+    $("#time").html("<img src=\"resources/img/" + season + ".png\"></img><p>Jour " + player.dayTotal + ", Ann&eacutee " + player.year + "</p><p>" + season + "</p>");
 }
 
 function grow(player) {
@@ -93,7 +93,7 @@ function grow(player) {
     $("#chat").html("");
     chat = [player.chat[0], player.chat[1], player.chat[2], player.chat[2], player.chat[4]];
     chat.forEach(function (chatMsg) {
-        if (typeof chatMsg !== "undefined") { $("#chat").html($("#chat").html() + "<p>" + chatMsg + "</p>"); }
+        if (typeof chatMsg !== "undefined") { $("#chat").html($("#chat").html() + "<p>" + chatMsg[0] + "</p>"); }
     });
     player.chat.forEach(function (message) {
         message[1]--;
@@ -133,7 +133,7 @@ function display(player) {
         }
         x++;
     });
-    $("#money").html("<p>Vous avez " + player.money + "$</p><p>Parcelle utilisées : " + y + " / " + player.spots.length + "</p>");
+    $("#money").html("<p>Vous avez " + player.money + "$</p><p>Parcelle utilis&eacutees : " + y + " / " + player.spots.length + "</p>");
     $("#vegetables").html(content);
     content = "";
     x = 0;
@@ -152,7 +152,7 @@ function display(player) {
     }
     player.inventory.forEach(function (item) {
         if (item.name !== "Graine") {
-            content += "<span id=\"" + x + "\">" + item.name + \" \" + getValString(item.value) + "</span>";
+            content += "<span id=\"" + x + "\">" + item.name + " " + getValString(item.value) + "</span>";
             content += " <button class=\"addToLab\" id=\"" + x + "\">Lab</button><button class=\"sell\" id=\"" + x + "\">Vendre</button><br>";
         }
         x++;

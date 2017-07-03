@@ -66,7 +66,7 @@ function plantPotato(player, spotId) {
             seed = player.inventory[x];
             break;
         }
-         x++;
+        x++;
     }
     if (typeof seed !== "undefined") {
         if (player.spots[spotId] === false) {
@@ -75,9 +75,7 @@ function plantPotato(player, spotId) {
             player.spots[spotId] = potato;
         }
     }
-    else {
-        eventMessage("Vous n'avez pas de graines !", player);
-    }
+    else { eventMessage("Vous n'avez pas de graines !", player); }
 }
 
 function buyPotatosSeeds(amount, player) {
