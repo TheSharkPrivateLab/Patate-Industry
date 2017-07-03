@@ -27,6 +27,7 @@ function getValString(value)
         1: "Acceptable",
         2: "Excellente",
         3: "Divine"
-    }
+    };
+
     return values[value];
 }

@@ -68,15 +68,16 @@ function plantPotato(player, spotId) {
         }
          x++;
     }
-    if (seed !== undefined) {
+    if (typeof seed !== "undefined") {
         if (player.spots[spotId] === false) {
             var potato = new Potato(seed);
             player.inventory.splice(x, 1);
             player.spots[spotId] = potato;
         }
     }
-    else
+    else {
         eventMessage("Vous n'avez pas de graines !", player);
+    }
 }
 
 function buyPotatosSeeds(amount, player) {

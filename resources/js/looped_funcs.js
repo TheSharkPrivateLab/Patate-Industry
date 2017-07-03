@@ -57,7 +57,6 @@ function time(player) {
 
 function grow(player) {
     var value;
-    var rand;
     var valString = "";
     var chat = [];
     var x = 0;
@@ -70,31 +69,29 @@ function grow(player) {
             vegetable.grown = true;
             if (vegetable.value === 42) {
                 value = getRandomInt(100);
-                if (value > 95)
-                    vegetable.value = 3;
-                else if (value > 70)
-                    vegetable.value = 2;
-                else if (value < 20)
-                    vegetable.value = 0;
-                else
-                    vegetable.value = 1;
+                switch(true) {
+                    case (value > 95):
+                        vegetable.value = 3;
+                        break;
+                    case (value > 70):
+                        vegetable.value = 2;
+                        break;
+                    case (value < 20):
+                        vegetable.value = 0;
+                        break;
+                    default:
+                        vegetable.value = 1;
+                }
             }
 
-            if (vegetable.value == 0)
-                valString = "Misérable";
-            else if (vegetable.value == 1)
-                valString = "Acceptable";
-            else if (vegetable.value == 2)
-                valString = "Excellente";
-            else if (vegetable.value == 3)
-                valString = "Divine";
+            valString = getValString(vegetable.value);
         }
         $("#chat").html("");
 
         chat = [player.chat[0], player.chat[1], player.chat[2], player.chat[2], player.chat[4]];
 
         chat.forEach(function (chatMsg) {
-            if (chatMsg !== undefined) { $("#chat").html($("#chat").html() + '<p>' + chatMsg + '</p>'); }
+            if (typeof chatMsg !== "undefined") { $("#chat").html($("#chat").html() + "<p>" + chatMsg + "</p>"); }
         });
         x++;
     });
