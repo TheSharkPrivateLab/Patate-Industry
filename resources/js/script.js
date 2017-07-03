@@ -17,17 +17,17 @@ function harvestPotato(id, player) {
 }
 
 function sellPotato(x, player) {
-    if (player.inventory[x].value === 0) {
-        player.money += player.inventory[x].price * 0.5;
-    }
-    else if (player.inventory[x].value === 1) {
-        player.money += player.inventory[x].price * 1.5;
-    }
-    else if (player.inventory[x].value === 2) {
-        player.money += player.inventory[x].price * 2;
-    }
-    else if (player.inventory[x].value === 3) {
-        player.money += player.inventory[x].price * 3;
+    const preset = {
+        0: 0.5,
+        1: 1.5,
+        2: 2,
+        3: 3
+    };
+
+    if (player.inventory.length < x) return;
+
+    if (preset[player.inventory[x].value]) {
+        player.money += player.inventory[x].price * preset[player.inventory[x].value];
     }
     player.inventory.splice(x, 1);
     display(player);
