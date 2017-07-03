@@ -28,6 +28,10 @@ function getValString(value)
         2: "Excellente",
         3: "Divine"
     };
-
-    return values[value];
+    if (values[value]) {
+        return values[value];
+    }
+    else {
+        return;
+    }
 }
