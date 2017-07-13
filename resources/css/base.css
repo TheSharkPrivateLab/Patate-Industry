@@ -91,6 +91,31 @@ body {
     background-repeat: no-repeat
 }
 
+.div-birth {
+    position: relative;
+    margin: 5px;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    border: 3px solid black;
+}
+
+.div-birth-potato {
+    position: relative;
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-image: url("../img/potato.png");
+    background-repeat: no-repeat
+}
+
+.lab-section {
+    display:inline-block;
+}
+
 #money {
     margin:10px;
 }

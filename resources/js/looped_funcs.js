@@ -14,6 +14,7 @@ function turnToWinter(player) {
 
 function time(player) {
     var season = "";
+    var Season = "";
     var weather = "";
     var color = "";
 
@@ -21,21 +22,22 @@ function time(player) {
     player.dayTotal += 3;
     switch (player.season) {
         case 0:
-            season = "Printemps";
+            season = Season = "Printemps";
             if (player.daySeason > 93) {
                 player.season = 1;
                 player.daySeason = 0;
             }
             break;
         case 1:
-            season = "&Eacutet&eacute";
+            season = "Été";
+            Season = "Summer";
             if (player.daySeason > 94) {
                 player.season = 2;
                 player.daySeason = 0;
             }
             break;
         case 2:
-            season = "Automne";
+            season = Season = "Automne";
             if (player.daySeason > 90) {
                 player.season = 3;
                 player.daySeason = 0;
@@ -43,7 +45,7 @@ function time(player) {
             weather = "weather rain";
             break;
         case 3:
-            season = "Hiver";
+            season = Season = "Hiver";
             weather = "weather snow";
             color = "background-color:#A5D2FF;";
             if (player.daySeason > 89) {
@@ -54,7 +56,7 @@ function time(player) {
     }
     $("#time").attr("class", weather);
     $("#time").attr("style", color);
-    $("#time").html("<img src=\"resources/img/" + season + ".png\"></img><p>Jour " + player.dayTotal + ", Ann&eacutee " + player.year + "</p><p>" + season + "</p>");
+    $("#time").html("<img src=\"resources/img/" + Season + ".png\"></img><p>Jour " + player.dayTotal + ", Ann&eacutee " + player.year + "</p><p>" + season + "</p>");
 }
 
 function grow(player) {
@@ -162,15 +164,20 @@ function display(player) {
     y = 0;
     content = "";
     player.lab.forEach(function (potato) {
+        content += "<section class=\"\">";
         if (potato[0] !== false)
-            content += "<button class=\"div-lab-potato\">" + potato[0].name + " : Valeur : " + getValString(potato[0].value) + "</button>";
+            content += "<section class=\"lab-section\"><button class=\"div-lab-potato\">" + potato[0].name + " : Valeur : " + getValString(potato[0].value) + "</button></section>";
         else
-            content += "<button class=\"div-lab\"></button>";
-        content += "<button>Reprod.</button>";
+            content += "<section class=\"lab-section\"><section class=\"lab-section\"><button class=\"div-lab\"></button></section>";
+        content += "<button>Reprod.</button><br>";
+        if (potato[2] !== false)
+            content += "<button class=\"div-birth-potato\">" + potato[1].name + " : Valeur : " + getValString(potato[1].value) + "</button></section>";
+        else
+            content += "<button class=\"div-birth\"></button></section>";
         if (potato[1] !== false)
-            content += "<button class=\"div-lab-potato\">" + potato[1].name + " : Valeur : " + getValString(potato[1].value) + "</button><br>";
+            content += "<section class=\"lab-section\"><button class=\"div-lab-potato\">" + potato[1].name + " : Valeur : " + getValString(potato[1].value) + "</button></section>";
         else
-            content += "<button class=\"div-lab\"></button><br>";
+            content += "<section class=\"lab-section\"><button class=\"div-lab\"></button></section>";
     });
     $("#lab").html(content);
 }
