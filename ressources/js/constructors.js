@@ -31,7 +31,7 @@ function Player(name) {
     this.season = 0; // 0 Spring, 1 Summer, 2 Autumn, 3 Winter
     this.daySeason = 0;
     this.dayTotal = 0;
-    this.year = 0;
+    this.year = 1;
     this.spots = [false, false, false, false, false, false, false, false, false, false];
     this.exp = 0;
     this.chat = [];

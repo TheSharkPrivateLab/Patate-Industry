@@ -56,7 +56,7 @@ function time(player) {
     }
     $("#time").attr("class", weather);
     $("#time").attr("style", color);
-    $("#time").html("<img src=\"resources/img/" + Season + ".png\"></img><p>Jour " + player.dayTotal + ", Ann&eacutee " + player.year + "</p><p>" + season + "</p>");
+    $("#time").html("<img src=\"ressources/img/" + Season + ".png\"></img><p>Jour " + player.dayTotal + ", Ann&eacutee " + player.year + "</p><p>" + season + "</p>");
 }
 
 function grow(player) {
@@ -149,7 +149,7 @@ function display(player) {
         content += "<br>";
     }
     else if (y > 1) {
-        content += "<img src=\"resources/img/Potato_Seeds.png\"></img><span>Graines x" + y + " </span>";
+        content += "<img src=\"ressources/img/Potato_Seeds.png\"></img><span>Graines x" + y + " </span>";
         content += "<br>";
     }
     player.inventory.forEach(function (item) {
